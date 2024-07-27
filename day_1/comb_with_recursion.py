@@ -14,9 +14,3 @@ def comb (arr, r):
 
 
 print(comb([1,2,3,4],3))
-# print(comb([1,2], 3))
-
-
-# lst = [1,2,3]
-# print(lst.append([]))
-# print(lst + [])
