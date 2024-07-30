@@ -5,4 +5,5 @@ Algorithm Workspace
 - day_3 : 
 - day_4 : DFS
 - day_5 : BFS
-- day_7 : heap과 백트래킹
+- day_7 : Heap과 백트래킹
+- day_8 : 탐욕 알고리즘
