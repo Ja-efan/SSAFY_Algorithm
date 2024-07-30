@@ -1,8 +1,8 @@
 # [모의 SW 역량테스트] 보물상자  비밀번호
 # https://swexpertacademy.com/main/talk/solvingClub/problemView.do?solveclubId=AZC_w6Z6yygDFAQW&contestProbId=AWXRUN9KfZ8DFAUo&probBoxId=AZDJWmAq-hkDFAVs&type=PROBLEM&problemBoxTitle=2w_homework&problemBoxCnt=3
-# import sys
-#
-# sys.stdin = open("../inputs/input_5658.txt")
+import sys
+
+sys.stdin = open("../inputs/input_5658.txt")
 
 # # hexadecimal dictionary
 # hex_list = list("ABCDEF")
@@ -38,10 +38,12 @@ for tc in range(1, T + 1):
             idx += line_numbers  # idx 갱신
 
     # 형 변환 (set -> list)
-    candidate_password_list = []
-    for hexadecimal_pw in candidate_password_set:
-        decimal_pw = int(hexadecimal_pw, 16)  # string 으로 표현 된 16진수를 10진수로 변경
-        candidate_password_list.append(decimal_pw)
+    # candidate_password_list = []
+    # for hexadecimal_pw in candidate_password_set:
+    #     decimal_pw = int(hexadecimal_pw, 16)  # string 으로 표현 된 16진수를 10진수로 변경
+    #     candidate_password_list.append(decimal_pw)
+
+    candidate_password_list = [int(hexadecimal_pw, 16) for hexadecimal_pw in candidate_password_set]
 
     # 비밀번호 정렬 (내림차순)
     candidate_password_list.sort(reverse=True)
