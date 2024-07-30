@@ -4,12 +4,6 @@ import sys
 
 sys.stdin = open("../inputs/input_5658.txt")
 
-# # hexadecimal dictionary
-# hex_list = list("ABCDEF")
-# hexadecimal_dict = dict()
-# for a, hex in zip(hex_list, range(10, 10 + len(hex_list))):
-#     hexadecimal_dict[a] = hex
-
 T = int(input())  # 테스트 케이스 개수
 
 for tc in range(1, T + 1):
@@ -33,16 +27,11 @@ for tc in range(1, T + 1):
 
         idx = 0  # numbers 슬라이싱 할 인덱스
         while idx < N:  # numbers 길이 벗어나지 않는 범위 내에서 후보 비밀번호 구성
-            candidate_password = "".join(rotated_numbers[idx:idx + line_numbers])
+            candidate_password = "".join(rotated_numbers[idx:idx + line_numbers])  # 문자열로 변환
             candidate_password_set.add(candidate_password)  # 후보 비밀번호 set 에 추가
             idx += line_numbers  # idx 갱신
 
-    # 형 변환 (set -> list)
-    # candidate_password_list = []
-    # for hexadecimal_pw in candidate_password_set:
-    #     decimal_pw = int(hexadecimal_pw, 16)  # string 으로 표현 된 16진수를 10진수로 변경
-    #     candidate_password_list.append(decimal_pw)
-
+    # 후보 비밀번호 리스트 (10진수)
     candidate_password_list = [int(hexadecimal_pw, 16) for hexadecimal_pw in candidate_password_set]
 
     # 비밀번호 정렬 (내림차순)
