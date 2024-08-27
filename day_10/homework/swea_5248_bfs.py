@@ -17,9 +17,9 @@ def bfs():
 
         numbers = list(map(int, input().split()))
 
-        pairs = [(numbers[i], numbers[i + 1]) for i in range(0, 2 * M - 1, 2)]
+        pairs = [(numbers[i], numbers[i + 1]) for i in range(0, 2 * M - 1, 2)]  # tuple list로 재구성
 
-        pair_dict = {i: [] for i in range(1, N + 1)}
+        pair_dict = {i: [] for i in range(1, N + 1)}  # 인접 리스트 딕셔너리
         for f, s in pairs:
             pair_dict[f].append(s)
             pair_dict[s].append(f)
