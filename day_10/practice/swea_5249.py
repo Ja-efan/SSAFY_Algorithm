@@ -1,5 +1,6 @@
 # 10d_practice
 # 최소 신장 트리
+# prim algorithm
 
 from collections import defaultdict
 import heapq
@@ -21,21 +22,21 @@ def prim():
         init_vertex = min(list(adj_dict.keys()))  # 초기 정점
         min_heap = [(weight, init_vertex, e_v) for e_v, weight in adj_dict[init_vertex]]  # 초기 정점에 연결된 엣지
 
-        visited.add(init_vertex)
+        visited.add(init_vertex)  # 초기 정점 방문 처리 
 
-        heapq.heapify(min_heap)
-        while min_heap:
-            weight, curr_v, adj_v = heapq.heappop(min_heap)
-            if adj_v in visited:
+        heapq.heapify(min_heap)  # 힙 변환 
+        while min_heap: 
+            weight, curr_v, adj_v = heapq.heappop(min_heap)  
+            if adj_v in visited:  # 방문한 정점인 경우 
                 continue
 
-            visited.add(adj_v)
-            mst_weight += weight
+            visited.add(adj_v)  # 인접 정점 방문 처리 
+            mst_weight += weight  # 가중치 추가 
 
-            for e_v, weight in adj_dict[adj_v]:
-                if e_v in visited:
+            for e_v, weight in adj_dict[adj_v]:  # 인접 정점의 인접 정점 확인 
+                if e_v in visited:  # 방문한 경우 스킵 
                     continue
-                heapq.heappush(min_heap, (weight, adj_v, e_v))
+                heapq.heappush(min_heap, (weight, adj_v, e_v))  # 힙 추가 
 
         print(f"#{tc} {mst_weight}")
 
